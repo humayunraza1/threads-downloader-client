@@ -69,7 +69,7 @@ function Homepage() {
         if (!input.includes("threads.net")) return alert("Invalid Link!");
         setIsLoading(true);
         try {
-            const res = await fetch("http://144.126.208.29/media", {
+            const res = await fetch("http://144.126.208.29:80/media", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
