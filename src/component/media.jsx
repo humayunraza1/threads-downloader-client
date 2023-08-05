@@ -5,7 +5,7 @@ import FileDownload from "js-file-download"
 function Media({ image, username, caption, mediaType, download }) {
 
     function handleDownload() {
-        const imageUrl = `http://localhost:8006/${download}`
+        const imageUrl = `https://api.karigar-pk.com/${download}`
         fetch(imageUrl)
             .then(response => response.blob())
             .then(blob => {
