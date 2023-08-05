@@ -69,7 +69,7 @@ function Homepage() {
         if (!input.includes("threads.net")) return alert("Invalid Link!");
         setIsLoading(true);
         try {
-            const res = await fetch("http://144.126.208.29:80/media", {
+            const res = await fetch("http://api.karigar-pk.com/media", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -102,7 +102,7 @@ function Homepage() {
 
 
     const fetchThumbnail = async (url) => {
-        const thumbnailUrl = `http://localhost:8006/${url}`;
+        const thumbnailUrl = `http://api.karigar-pk.com/${url}`;
 
         try {
             const response = await fetch(thumbnailUrl);
