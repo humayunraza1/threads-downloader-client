@@ -145,9 +145,10 @@ function Homepage() {
     };
     return (
         <div>
+            <Header />
+
             <div className="main-tool">
 
-                <Header />
                 <div className="title-container">
                     <div className="image-container">
                         <img src="https://seeklogo.com/images/T/threads-by-instagram-logo-20008C5295-seeklogo.com.png?v=638252100920000000" alt="Thread.net logo" />
