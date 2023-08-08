@@ -6,6 +6,9 @@ function TC() {
     return (
         <>
             <Header />
+            <div className="page-title">
+                <h1>Terms & Conditions</h1>
+            </div>
             <TermsCondition />
             <Footer />
         </>

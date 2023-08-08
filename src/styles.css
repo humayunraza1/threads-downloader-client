@@ -5,19 +5,23 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 .main-tool {
   display: flex;
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  height: 40dvh;
+  height: 50dvh;
   align-items: center;
   row-gap: 50px;
-  background-color: #e51a2d;
+  background-color: #000;
+  background-image: url("/resources/Threads.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   border-bottom-left-radius: 48px;
   border-bottom-right-radius: 48px;
-  box-shadow: 0 1rem 1.5rem -0.75rem rgb(37 46 105 / 30%);
+  box-shadow: 0 1rem 3rem -0.75rem rgba(255, 255, 255, 0.3);
 }
 
 header {
@@ -26,7 +30,7 @@ header {
   width: 100%;
   align-items: center;
   justify-content: center;
-  background-color: #e51a2d;
+  background-color: #000;
   top: 0;
   text-align: center;
   z-index: 10;
@@ -41,6 +45,15 @@ header > a {
   color: white;
   letter-spacing: 2px;
 }
+
+header > nav > ul > li > a:hover {
+  color: #e51a2d;
+}
+
+header > nav > ul > li > .active {
+  color: #e51a2d;
+}
+
 header > a:link {
   justify-content: center;
   text-decoration: none;
@@ -157,14 +170,14 @@ header div button:hover {
   width: 550px;
   padding: 10px;
   height: 50 px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(5, 5, 5, 0.295);
+  backdrop-filter: blur(5px);
   display: flex;
   flex-wrap: wrap;
   flex-basis: 0;
   flex-grow: 1;
   margin-bottom: 40px;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 1rem 1.5rem -0.75rem rgb(37 46 105 / 30%);
+  box-shadow: -0.2rem -1rem 2rem -0.45rem rgba(255, 255, 255, 0.3);
 }
 .main-tool form .input-wrapper .paste-btn {
   background-color: rgb(219, 219, 219);
@@ -190,9 +203,14 @@ header div button:hover {
   display: flex;
   flex-wrap: wrap;
   flex-basis: 0;
+  color: white;
   flex-grow: 1;
   width: 75%;
   background: none;
+}
+
+.main-tool form .input-wrapper input::placeholder {
+  color: white;
 }
 .main-tool form button {
   border-top-right-radius: 10px;
@@ -223,8 +241,6 @@ header div button:hover {
   display: flex;
   flex-direction: row;
   border-radius: 8px;
-  box-shadow: 0 1rem 1.5rem -0.75rem rgb(37 46 105 / 30%);
-
   border-width: 2px;
   border-style: none;
   padding: 10px;
@@ -232,6 +248,53 @@ header div button:hover {
   margin-top: 20px;
   width: auto;
   flex-wrap: wrap;
+  color: white;
+  /* outline-style: solid;
+  outline-width: 2px; */
+  background-color: rgba(228, 228, 228, 0.295);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  box-shadow: 0 1rem 3rem 0.75rem rgba(255, 255, 255, 0.2);
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  left: -50%; /*Adjust to center the pseudo-element */
+  top: -140%; /*Adjust to center the pseudo-element */
+  width: 200%; /* Adjust width and height for aspect ratio */
+  height: 400%;
+  /* background: linear-gradient(#00ccff, #d500f9); */
+  background: conic-gradient(
+    #fd004c,
+    #fe9000,
+    #fff020,
+    #3edf4b,
+    #3363ff,
+    #b102b7,
+    #fd004c
+  );
+  z-index: -1; /* Place the pseudo-element behind other elements */
+  animation: rotate 2s infinite linear;
+}
+
+.container::after {
+  content: "";
+  border-radius: 7px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  /* background-color: rgb(88, 88, 88); */
+  background-color: #000;
+  backdrop-filter: blur(5px);
+  width: 462px;
+  height: 120px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-360deg);
+  }
 }
 
 .container .post-info {
@@ -241,6 +304,10 @@ header div button:hover {
   max-width: 500px;
   flex-basis: 0;
   flex-grow: 1;
+  z-index: 2;
+}
+.container .info-container {
+  z-index: 2;
 }
 
 .container .post-info .username > h3,
@@ -251,6 +318,7 @@ header div button:hover {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  z-index: 2;
 }
 
 .info-container > img {
@@ -270,29 +338,34 @@ header div button:hover {
   width: 100%;
   display: flex;
   justify-content: flex-end;
+  z-index: 2;
 }
 .download-btn {
   width: 150px;
   border-radius: 8px;
   border-style: none;
   height: 28px;
-  background-color: #1ae5d2;
+  background-color: #e51a2d;
 }
 
 .download-btn:hover {
   cursor: pointer;
-  background-color: #14aa9b;
+  background-color: #ad1625;
 }
 
 footer {
   width: 100%;
   height: 20dvh;
-  background-color: #e51a2d;
+  /* background-color: #000; */
   position: relative;
   bottom: 0;
   border-top-left-radius: 48px;
   border-top-right-radius: 48px;
-  box-shadow: 0 1rem 1.5rem -0.75rem rgb(37 46 105 / 30%);
+  background-image: url("/resources/Threads.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+  box-shadow: 0 1rem 3rem 0.75rem rgba(255, 255, 255, 0.3);
   margin-top: 20px;
   color: white;
 }
@@ -308,12 +381,19 @@ footer .footer-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  column-gap: 20px;
+  row-gap: 20px;
   align-items: center;
   padding: 20px;
 }
 
 footer .footer-container .footer-logo {
   text-align: center;
+  width: 250px;
+  background-color: rgba(5, 5, 5, 0.45);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .body-wrapper {
@@ -327,7 +407,11 @@ footer .footer-container h1 {
 footer .footer-container .other-contents {
   display: flex;
   flex-direction: column;
-  width: 100dvw;
+  width: auto;
+  background-color: rgba(5, 5, 5, 0.45);
+  backdrop-filter: blur(8px);
+  border-radius: 10px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -337,6 +421,7 @@ footer .footer-container .other-contents ul {
   flex-wrap: wrap;
   text-align: center;
   column-gap: 50px;
+  margin-right: 30px;
 }
 
 .form-btns {
@@ -362,7 +447,7 @@ footer .footer-container .other-contents ul {
     justify-content: flex-end;
   }
   footer {
-    height: 25dvh;
+    height: auto;
   }
 }
 
@@ -401,24 +486,27 @@ a[disabled] {
 }
 
 .pp-container {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100dvh;
+  position: relative;
+  flex-basis: 0;
+  flex-grow: 1;
+  color: white;
+  padding: 40px;
 }
 
 .terms-container {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100dvh;
+  padding: 40px;
+  color: white;
 }
 footer .other-contents nav a {
   color: white;
 }
 
 footer .other-contents nav a:hover {
-  color: #1ae5d2;
+  color: #e51a2d;
 }
 
 footer .other-contents nav a:link {
@@ -433,7 +521,7 @@ footer .other-contents nav a:link {
   font-size: 25px;
   align-items: end;
   height: 30dvh;
-  color: black;
+  color: white;
 }
 .faq-container {
   width: 100%;
@@ -464,11 +552,13 @@ footer .other-contents nav a:link {
   padding: 0 24px;
   padding-right: 48px;
   cursor: pointer;
-  border-top: 4px solid #fff;
-  border-bottom: 4px solid #fff;
   column-gap: 24px;
+  border-radius: 8px;
   row-gap: 32px;
+  color: white;
   max-width: 700px;
+  background-color: rgba(228, 228, 228, 0.295);
+  backdrop-filter: blur(5px);
   align-items: center;
 }
 
@@ -503,12 +593,12 @@ footer .other-contents nav a:link {
 
 /* OPEN STATE */
 .open {
-  border-top: 4px solid #087f5b;
+  border-top: 4px solid #e51a2d;
 }
 
 .open .number,
 .open .title {
-  color: #087f5b;
+  color: #e51a2d;
 }
 
 /* Burger Menu Navbar */
@@ -588,13 +678,12 @@ footer .other-contents nav a:link {
   }
 } */
 
-.home-faq {
+.home {
   text-align: center;
 }
 
-.home-faq h2 {
-  color: #868e96;
-  opacity: 0.4;
+.home h2 {
+  color: #fff;
   letter-spacing: 1px;
 }
 
@@ -604,4 +693,52 @@ footer .other-contents nav a:link {
   .icon {
     font-size: 18px;
   }
+}
+
+/* Expandables */
+
+.expand-wrapper {
+  display: flex;
+  max-width: 700px;
+  height: 300px;
+  color: white;
+  border-radius: 8px;
+  background-color: rgba(
+    221,
+    221,
+    221,
+    0.5
+  ); /* Adjust the alpha value to control the transparency */
+  backdrop-filter: blur(10px);
+  margin-bottom: 50px;
+  overflow-y: auto;
+  outline: #fff;
+  outline-style: solid;
+  outline-width: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: noGrow 1s forwards;
+}
+.expand-wrapper:hover {
+  cursor: pointer;
+}
+@keyframes grow {
+  from {
+    height: 300px;
+  }
+  to {
+    height: 1200px;
+  }
+}
+
+@keyframes noGrow {
+  from {
+    height: 700px;
+  }
+  to {
+    height: 300px;
+  }
+}
+
+.expand-wrapper.rotate {
+  animation: grow 1s forwards;
 }

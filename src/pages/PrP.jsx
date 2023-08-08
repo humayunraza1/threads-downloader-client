@@ -6,6 +6,9 @@ function PrP() {
     return (
         <>
             <Header />
+            <div className="page-title">
+                <h1>Privacy Policy</h1>
+            </div>
             <PrivacyPolicy />
             <Footer />
         </>

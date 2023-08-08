@@ -9,6 +9,9 @@ import Header from "../component/Header";
 import Footer from "../component/Footer";
 import CustomLoader from "../component/CustomLoader";
 import FAQs from "../component/FAQs";
+import Expandables from "../component/Expandables";
+import PrivacyPolicy from "../component/PrivacyPolicy";
+import TermsCondition from "../component/TermsCondition";
 
 const theme = createTheme({
     palette: {
@@ -68,6 +71,7 @@ function Homepage() {
         if (input === "") return
         if (!input.includes("threads.net")) return alert("Invalid Link!");
         setIsLoading(true);
+        //https://api.karigar-pk.com/media
         try {
             const res = await fetch("https://api.karigar-pk.com/media", {
                 method: "POST",
@@ -186,10 +190,19 @@ function Homepage() {
                                 return <Media mediaType={tData[0].type} caption={tData[0].caption} username={tData[0].user.username} image={url} download={Files[index]} alt={`${tData[0].user.username}'s photo`} key={index} />
                             })
                         }
-                        <div className="home-faq">
+                        <div className="home">
                             <h2>Frequently Asked Questions</h2>
                             <FAQs data={faqs} />
+                            <h2>Privacy Policy</h2>
+                            <Expandables>
+                                <PrivacyPolicy />
+                            </Expandables>
+                            <h2>Terms & Conditions</h2>
+                            <Expandables>
+                                <TermsCondition />
+                            </Expandables>
                         </div>
+
                     </div>
                     <Footer />
                 </div>
