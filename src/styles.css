@@ -281,6 +281,7 @@ header div button:hover {
 .container::after {
   content: "";
   border-radius: 7px;
+  display: flex;
   position: absolute;
   top: 4px;
   left: 4px;
@@ -288,7 +289,7 @@ header div button:hover {
   background-color: #000;
   backdrop-filter: blur(5px);
   width: 462px;
-  height: 120px;
+  min-height: 120px;
 }
 
 @keyframes rotate {
@@ -427,6 +428,19 @@ footer .footer-container .other-contents ul {
 .form-btns {
   display: flex;
 }
+@media screen and (max-width: 469px) {
+  .container::after {
+    height: 145px;
+    width: 98%;
+  }
+}
+
+@media screen and (max-width: 293px) {
+  .container::after {
+    height: 170px;
+  }
+}
+
 @media screen and (max-width: 875px) {
   .title-container h1 {
     font-size: 32px;
